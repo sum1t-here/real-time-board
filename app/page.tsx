@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -7,10 +7,6 @@ export default function Home() {
         This is a screen for Authenticated user only
         <UserButton/>
       </SignedIn>
-      <SignedOut>
-        <SignIn/>
-      </SignedOut>
-
     </div>
   );
 }
