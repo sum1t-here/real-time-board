@@ -1,17 +1,11 @@
 interface UserIdPageProps {
-    params: {
-        userId: string;
-    };
-};
+  params: {
+    userId: string;
+  };
+}
 
-const Page = ({
-    params,
-}: UserIdPageProps) => {
-    return (
-        <div>
-            User id: {params.userId}
-        </div>
-    );
+const Page = ({ params }: UserIdPageProps) => {
+  return <div>User id: {params.userId}</div>;
 };
 
 export default Page;
