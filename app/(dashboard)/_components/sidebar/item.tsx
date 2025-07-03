@@ -7,7 +7,7 @@ import {
 } from "@clerk/nextjs"
 
 import { cn } from "@/lib/utils";
-import { Hint } from "@/components/hint";
+import { Hint } from "@/app/(dashboard)/_components/hint";
 
 interface ItemProps {
     id: string,
