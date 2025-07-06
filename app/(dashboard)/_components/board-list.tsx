@@ -25,7 +25,23 @@ export const BoardList = ({ orgId }: BoardListProps) => {
 
   // check for convex
   if (data === undefined) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <h2 className="text-3xl">{favorites ? 'Favorite Board' : 'Team Boards'}</h2>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-2">
+          <NewBoardButton orgId={orgId} disabled />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+          <BoardCard.Skeleton />
+        </div>
+      </div>
+    );
   }
 
   if (!data?.length && search) {
