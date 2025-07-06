@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { useOrganization, useOrganizationList } from '@clerk/nextjs';
+import Image from 'next/image';
 
-import { cn } from '@/lib/utils';
 import { Hint } from '@/app/(dashboard)/_components/hint';
+import { cn } from '@/lib/utils';
 
 interface ItemProps {
   id: string;

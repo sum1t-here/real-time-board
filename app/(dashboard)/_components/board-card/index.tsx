@@ -1,11 +1,11 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Overlay } from './overlay';
 import { useAuth } from '@clerk/nextjs';
 import { formatDistanceToNow } from 'date-fns';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Footer } from './footer';
+import { Overlay } from './overlay';
 
 interface BoardCardProps {
   id: string;

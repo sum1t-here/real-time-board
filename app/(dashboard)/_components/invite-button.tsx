@@ -1,7 +1,7 @@
-import { Plus } from 'lucide-react';
-import { OrganizationProfile } from '@clerk/nextjs';
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { OrganizationProfile } from '@clerk/nextjs';
+import { Plus } from 'lucide-react';
 
 export const InviteButton = () => {
   return (

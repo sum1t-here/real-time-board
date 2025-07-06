@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { toast } from 'sonner';
 
 import { api } from '@/convex/_generated/api';
-import { useOrganization } from '@clerk/nextjs';
 import { useApiMutation } from '@/hooks/use-api-mutation';
+import { useOrganization } from '@clerk/nextjs';
 
 export const EmptyBoards = () => {
   const { organization } = useOrganization();
