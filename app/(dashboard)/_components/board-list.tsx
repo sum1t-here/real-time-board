@@ -15,13 +15,17 @@ interface BoardListProps {
 }
 
 export const BoardList = ({ orgId }: BoardListProps) => {
-  const data = useQuery(api.boards.get, { orgId });
-
   const searchParams = useSearchParams();
 
   // Use useMemo to safely unwrap dynamic param access
   const search = useMemo(() => searchParams.get('search'), [searchParams]);
   const favorites = useMemo(() => searchParams.get('favorites'), [searchParams]);
+
+  const data = useQuery(api.boards.get, {
+    orgId,
+    search: search || undefined,
+    favorites: favorites || undefined,
+  });
 
   // check for convex
   if (data === undefined) {

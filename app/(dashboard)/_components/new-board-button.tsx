@@ -16,7 +16,7 @@ export const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
   const create = () => {
     mutate({
       orgId,
-      title: 'untitled',
+      title: 'Untitled',
     }).then((id) => {
       toast.success('Board created succesfully !!!');
       // TODO: Redirect to /board/${id}
