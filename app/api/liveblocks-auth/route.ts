@@ -13,37 +13,43 @@ export async function POST(req: Request) {
   const authorization = await auth();
   const user = await currentUser();
 
-//   console.log('Auth_info', {
-//     authorization,
-//     user,
-//   });
+  //   console.log('Auth_info', {
+  //     authorization,
+  //     user,
+  //   });
 
   if (!authorization || !user) {
-    return new Response('Unauthorised', { status: 403 });
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 403,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   const { room } = await req.json();
   const board = await convex.query(api.board.get, { id: room });
 
-//   console.log('Auth_info', {
-//     authorization,
-//     user,
-//     room,
-//     board,
-//     boardOrgId: board?.orgId,
-//     userOrgId: authorization?.orgId,
-//   });
+  //   console.log('Auth_info', {
+  //     authorization,
+  //     user,
+  //     room,
+  //     board,
+  //     boardOrgId: board?.orgId,
+  //     userOrgId: authorization?.orgId,
+  //   });
 
   if (board?.orgId !== authorization.orgId) {
-    return new Response('Unauthorised');
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 403,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   const userInfo = {
-    name: user.firstName,
-    picture: user.imageUrl,
+    name: user.firstName || '',
+    picture: user.imageUrl || '',
   };
 
-//   console.log('USER_INFO', { userInfo });
+  //   console.log('USER_INFO', { userInfo });
 
   const session = liveblocks.prepareSession(user.id, { userInfo });
 
@@ -52,7 +58,7 @@ export async function POST(req: Request) {
   }
 
   const { status, body } = await session.authorize();
-//   console.log({ status, body }, 'ALLOWED');
+  //   console.log({ status, body }, 'ALLOWED');
 
   return new Response(body, { status });
 }
