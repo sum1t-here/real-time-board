@@ -1,3 +1,4 @@
+import { connectionIdToColor } from '@/lib/utils';
 import { useOthers, useSelf } from '@liveblocks/react';
 import { UserAvatar } from './userAvatar';
 
@@ -15,6 +16,7 @@ export const Participants = () => {
           return (
             <UserAvatar
               key={connectionId}
+              borderColor={connectionIdToColor(connectionId)}
               src={info?.picture}
               name={info?.name}
               fallback={info?.name?.[0] || 'T'}
@@ -24,6 +26,7 @@ export const Participants = () => {
 
         {currentUser && (
           <UserAvatar
+            borderColor={connectionIdToColor(currentUser.connectionId)}
             src={currentUser.info?.picture}
             name={`${currentUser.info?.name} (You)`}
             fallback={currentUser.info?.name?.[0]}
