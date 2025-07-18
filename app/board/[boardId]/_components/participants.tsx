@@ -2,7 +2,7 @@ import { connectionIdToColor } from '@/lib/utils';
 import { useOthers, useSelf } from '@liveblocks/react';
 import { UserAvatar } from './userAvatar';
 
-const MAX_SHOWN_USERS = 2;
+const MAX_SHOWN_USERS = 1;
 
 export const Participants = () => {
   const users = useOthers();
