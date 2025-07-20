@@ -53,7 +53,10 @@ export const SelectionTools = memo(({ camera, setLastUsedColor }: SelectionTools
         }
       }
 
+      // Move selected layers to the end of the array (top of the stack)
+      // Iterate in reverse to avoid disrupting earlier indices
       for (let i = indices.length - 1; i >= 0; i--) {
+        // Calculate new position: push towards the end, in same relative order
         liveLayerIds.move(indices[i], arr.length - 1 - (indices.length - 1 - i));
       }
     },
